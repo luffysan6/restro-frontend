@@ -32,7 +32,7 @@ const authStore = create((set, get) => ({
     return result;
   },
   Register: async ({ email, name, password }) => {
-    let resposne = await fetch("https://restro-backend-wfvm.onrender.com", {
+    let resposne = await fetch("https://restro-backend-wfvm.onrender.com/auth/register", {
       method: "POST",
       body: JSON.stringify({ name: name, email: email, password: password }),
       headers: {
