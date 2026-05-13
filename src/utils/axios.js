@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://restro-backend-wfvm.onrender.com",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
