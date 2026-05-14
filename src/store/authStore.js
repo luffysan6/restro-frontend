@@ -32,17 +32,22 @@ const authStore = create((set, get) => ({
     return result;
   },
   Register: async ({ email, name, password }) => {
-    let resposne = await fetch("https://restro-backend-wfvm.onrender.com/auth/register", {
-      method: "POST",
-      body: JSON.stringify({ name: name, email: email, password: password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+     const resposne = await axiosInstance.post("/auth", {
+      email,
+      password,
+       name
     });
+    // let resposne = await fetch("https://restro-backend-wfvm.onrender.com/auth/register", {
+    //   method: "POST",
+    //   body: JSON.stringify({ name: name, email: email, password: password }),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
 
-    let result = await resposne.json();
+    // let result = await resposne.json();
 
-    if (result.success) {
+    if (result.data.success) {
       set({ isAuth: true });
     }
     return result;
